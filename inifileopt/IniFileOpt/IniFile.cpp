@@ -29,13 +29,13 @@ BOOL CIniFile::SetUint(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, UINT nKeyVa
 
 BOOL CIniFile::SetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int nKeyValue)
 {
-	assert(NULL != lpszSectionName && NULL != lpszKeyName);
-	return ::WritePrivateProfileString(
-		lpszSectionName,
-		lpszKeyName,
-		To_CString(nKeyValue).c_str(),
-		m_strFileName.c_str()
-		);
+    assert(NULL != lpszSectionName && NULL != lpszKeyName);
+    return ::WritePrivateProfileString(
+        lpszSectionName,
+        lpszKeyName,
+        To_CString(nKeyValue).c_str(),
+        m_strFileName.c_str()
+        );
 }
 
 BOOL CIniFile::SetString(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, LPCTSTR lpszKeyValue)
@@ -62,13 +62,13 @@ UINT CIniFile::GetUint(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int default
 
 int CIniFile::GetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int defaultVal /*= 0 */)
 {
-	assert(NULL != lpszSectionName && NULL != lpszKeyName);
-	return ::GetPrivateProfileInt(
-		lpszSectionName,
-		lpszKeyName,
-		defaultVal,
-		m_strFileName.c_str()
-		);
+    assert(NULL != lpszSectionName && NULL != lpszKeyName);
+    return ::GetPrivateProfileInt(
+        lpszSectionName,
+        lpszKeyName,
+        defaultVal,
+        m_strFileName.c_str()
+        );
 }
 
 DWORD CIniFile::GetString(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, LPCTSTR lpszDefault, C_String &strVal)

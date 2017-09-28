@@ -26,31 +26,31 @@ public:
     void SetFileName(LPCTSTR szFileName);
 
     //Operations
-	BOOL SetUint(
+    BOOL SetUint(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,
         UINT nKeyValue
         );
-	BOOL SetInt(
-		LPCTSTR lpszSectionName,
-		LPCTSTR lpszKeyName,
-		int nKeyValue
-		);
+    BOOL SetInt(
+        LPCTSTR lpszSectionName,
+        LPCTSTR lpszKeyName,
+        int nKeyValue
+        );
     BOOL SetString(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,
         LPCTSTR lpszKeyValue
         );
-	UINT GetUint(
+    UINT GetUint(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,
         int defaultVal = 0
         );
-	int GetInt(
-		LPCTSTR lpszSectionName,
-		LPCTSTR lpszKeyName,
-		int defaultVal = 0
-		);
+    int GetInt(
+        LPCTSTR lpszSectionName,
+        LPCTSTR lpszKeyName,
+        int defaultVal = 0
+        );
     DWORD GetString(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,

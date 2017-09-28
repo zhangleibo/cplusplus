@@ -16,7 +16,7 @@ void CIniFile::SetFileName(LPCTSTR szFileName)
     m_strFileName = szFileName;
 }
 
-BOOL CIniFile::SetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int nKeyValue)
+BOOL CIniFile::SetUint(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, UINT nKeyValue)
 {
     assert(NULL != lpszSectionName && NULL != lpszKeyName);
     return ::WritePrivateProfileString(
@@ -25,6 +25,17 @@ BOOL CIniFile::SetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int nKeyValu
         To_CString(nKeyValue).c_str(),
         m_strFileName.c_str()
         );
+}
+
+BOOL CIniFile::SetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int nKeyValue)
+{
+	assert(NULL != lpszSectionName && NULL != lpszKeyName);
+	return ::WritePrivateProfileString(
+		lpszSectionName,
+		lpszKeyName,
+		To_CString(nKeyValue).c_str(),
+		m_strFileName.c_str()
+		);
 }
 
 BOOL CIniFile::SetString(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, LPCTSTR lpszKeyValue)
@@ -38,7 +49,7 @@ BOOL CIniFile::SetString(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, LPCTSTR l
         );
 }
 
-int CIniFile::GetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int defaultVal /*= 0 */)
+UINT CIniFile::GetUint(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int defaultVal /*= 0 */)
 {
     assert(NULL != lpszSectionName && NULL != lpszKeyName);
     return ::GetPrivateProfileInt(
@@ -49,7 +60,18 @@ int CIniFile::GetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int defaultVa
         );
 }
 
-DWORD CIniFile::GetString(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, LPCTSTR lpszDefault, CString &strVal)
+int CIniFile::GetInt(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, int defaultVal /*= 0 */)
+{
+	assert(NULL != lpszSectionName && NULL != lpszKeyName);
+	return ::GetPrivateProfileInt(
+		lpszSectionName,
+		lpszKeyName,
+		defaultVal,
+		m_strFileName.c_str()
+		);
+}
+
+DWORD CIniFile::GetString(LPCTSTR lpszSectionName, LPCTSTR lpszKeyName, LPCTSTR lpszDefault, C_String &strVal)
 {
     assert(NULL != lpszSectionName && NULL != lpszKeyName);
     TCHAR szbuff[MAX_STR_BLOCKREASON] = { 0 };

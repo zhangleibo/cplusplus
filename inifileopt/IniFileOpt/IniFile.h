@@ -10,10 +10,10 @@
 */
 
 #ifdef UNICODE
-typedef std::wstring CString;
+typedef std::wstring C_String;
 #define To_CString(val) std::to_wstring(val)
 #else
-typedef std::string CString;
+typedef std::string C_String;
 #define To_CString(val) std::to_string(val)
 #endif
 
@@ -26,26 +26,36 @@ public:
     void SetFileName(LPCTSTR szFileName);
 
     //Operations
-    BOOL SetInt(
+	BOOL SetUint(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,
-        int nKeyValue
+        UINT nKeyValue
         );
+	BOOL SetInt(
+		LPCTSTR lpszSectionName,
+		LPCTSTR lpszKeyName,
+		int nKeyValue
+		);
     BOOL SetString(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,
         LPCTSTR lpszKeyValue
         );
-    int GetInt(
+	UINT GetUint(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,
         int defaultVal = 0
         );
+	int GetInt(
+		LPCTSTR lpszSectionName,
+		LPCTSTR lpszKeyName,
+		int defaultVal = 0
+		);
     DWORD GetString(
         LPCTSTR lpszSectionName,
         LPCTSTR lpszKeyName,
         LPCTSTR lpszDefault,
-        CString &strVal
+        C_String &strVal
         );
     BOOL DeleteSection(
         LPCTSTR lpszSectionName
@@ -55,5 +65,5 @@ public:
         LPCTSTR lpszKeyName
         );
 private:
-    CString m_strFileName;
+    C_String m_strFileName;
 };

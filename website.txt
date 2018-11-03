@@ -1,0 +1,14 @@
+﻿//马丁布罗德赫斯特
+//我是位于英国剑桥的软件开发人员Martin Broadhurst。
+//
+//我主要在Linux和Windows上使用C和C ++，Python，Perl和Java 编程。
+//
+//我熟悉的技术包括网络编程，HTTP，数据库和分布式系统。
+//
+//我对算法，数据结构和数学也很感兴趣。
+//您可以通过电子邮件在此域名与martin联系。
+
+http://www.martinbroadhurst.com/  
+
+https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5
+https://zh.cppreference.com/w/首页
